@@ -12,7 +12,7 @@ you may adjust `firefox-build.nix` to point to your local `mozilla-central` repo
 ### flake dev env
 
 ```sh
-nix develop . --impure
+nix develop .
 
 ```
 

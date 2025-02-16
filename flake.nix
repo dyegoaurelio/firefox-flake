@@ -4,8 +4,15 @@
   outputs = { self, nixpkgs }: {
 
     defaultPackage.x86_64-linux =
-      with import nixpkgs { system = "x86_64-linux"; };
-      callPackage ./firefox-build.nix { };
+    let
+      pkgs =  import nixpkgs { system = "x86_64-linux"; };
+      in
+      pkgs.callPackage (import ./firefox-build.nix {
+        pkgs = pkgs;
+        _extraPatches = [
+          ./fix-mach-ide-vscode.diff
+        ];
+      }){};
 
   };
 }
