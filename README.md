@@ -1,18 +1,9 @@
 # firefox-flake
 
-### using `nix-build` to compile Firefox
-
-```sh
-nix-build -E 'with import <nixpkgs> {}; callPackage ./firefox-build.nix {}'
-```
-
-you may adjust `firefox-build.nix` to point to your local `mozilla-central` repo
-
-
 ### flake dev env
 
 ```sh
-nix develop .
+nix develop . --impure
 
 ```
 
@@ -24,5 +15,13 @@ nix derivation commands to run after getting into dev shell,  `cd` into firefox 
 # patchPhase # optional (apply mach ide vscode fix)
 configurePhase
 buildPhase
+```
+
+### using `nix build` to compile Firefox
+
+1. make sure to adjust the `src` path in `firefox-build.nix`
+
+```sh
+nix build . --impure
 ```
 

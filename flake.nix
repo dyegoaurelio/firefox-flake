@@ -9,6 +9,7 @@
       in
       pkgs.callPackage (import ./firefox-build.nix {
         pkgs = pkgs;
+        mozillaCentralPath = "file:///home/dyego/coding/random/mozilla-central";
         _extraPatches = [
           ./fix-mach-ide-vscode.diff
         ];
