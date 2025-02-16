@@ -2,10 +2,10 @@
   pkgs ? import <nixpkgs> {},
   _extraPatches ? [],
   _extraBuildInputs ? [],
+  _extraConfigureFlags ? []
 }:
   with pkgs;
   callPackage ./common.nix rec {
-    extraConfigureFlags = ["--disable-bootstrap"];
     pname = "firefox-devedition";
     version = "135.0b9";
     applicationName = "Mozilla Firefox Developer Edition";
@@ -31,6 +31,7 @@
     tests = {
       inherit (nixosTests) firefox-devedition;
     };
+    extraConfigureFlags = _extraConfigureFlags;
     extraPatches = _extraPatches;
     extraBuildInputs = _extraBuildInputs;
   }

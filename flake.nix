@@ -12,6 +12,9 @@
         _extraPatches = [
           ./fix-mach-ide-vscode.diff
         ];
+        _extraConfigureFlags = [
+          "--disable-bootstrap"
+        ];
       }){};
 
   };
