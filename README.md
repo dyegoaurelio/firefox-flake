@@ -21,7 +21,7 @@ firefox [gecko dev](https://github.com/mozilla/gecko-dev/) commit that works wit
 nix derivation commands to run after getting into dev shell,  `cd` into firefox folder and checking out to appropriate commit:
 
 ```sh
-# patchPhase # optional (to apply nix patches)
+# patchPhase # optional (apply mach ide vscode fix)
 configurePhase
 buildPhase
 ```
