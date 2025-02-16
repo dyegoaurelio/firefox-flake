@@ -1,5 +1,5 @@
 {
-  mozillaCentralPath,
+  mozillaCentralPath ? null,
   pkgs ? import <nixpkgs> {},
   _extraPatches ? [],
   _extraBuildInputs ? [],
@@ -12,7 +12,12 @@
     applicationName = "Mozilla Firefox Developer Edition";
     requireSigning = false;
     branding = "browser/branding/aurora";
-    src = fetchGit {
+    src =  if mozillaCentralPath == null then
+      fetchurl {
+      url = "mirror://mozilla/devedition/releases/${version}/source/firefox-${version}.source.tar.xz";
+      sha512 = "bf09f999b347492b841a26fcbcfb4d37e5f74528a05ffab47572dcaae01cb43e70baf58e83cc5153498a6a6ad2cb69507b628fba840090c91f4dbca62717a435";
+    } else
+      fetchGit {
       url = mozillaCentralPath;
     };
 
