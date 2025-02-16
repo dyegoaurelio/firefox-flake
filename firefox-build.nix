@@ -2,6 +2,7 @@ with import <nixpkgs> { };
 
 let
   firefox = callPackage ./common.nix rec {
+    extraConfigureFlags = ["--disable-bootstrap"];
     pname = "firefox-devedition";
     version = "135.0b9";
     applicationName = "Mozilla Firefox Developer Edition";
