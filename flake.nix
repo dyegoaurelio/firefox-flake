@@ -1,6 +1,8 @@
 {
   description = "A flake for building Firefox";
-
+  inputs.nixpkgs = {
+    url = "github:NixOS/nixpkgs/9855e2d3f265add064386d5db7b66b0d18a9977a";
+  };
   outputs = { self, nixpkgs }: {
 
     defaultPackage.x86_64-linux =
