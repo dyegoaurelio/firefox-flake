@@ -18,6 +18,9 @@
         _extraConfigureFlags = [
           "--disable-bootstrap"
         ];
+        _extraBuildInputs = [
+          pkgs.python312Packages.ninja
+        ];
       }){};
 
   };
