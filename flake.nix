@@ -20,6 +20,7 @@
         ];
         _extraBuildInputs = [
           pkgs.python312Packages.ninja
+          pkgs.gdb
         ];
       }){};
 
