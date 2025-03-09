@@ -5,10 +5,13 @@
   _extraBuildInputs ? [],
   _extraConfigureFlags ? []
 }:
-  with pkgs;
-  callPackage ./common.nix rec {
-    pname = "firefox-devedition";
+  let
     version = "135.0b9";
+  in
+  with pkgs;
+  import (pkgs.path + "/pkgs/applications/networking/browsers/firefox/common.nix") {
+    pname = "firefox-devedition";
+    version = version;
     applicationName = "Mozilla Firefox Developer Edition";
     requireSigning = false;
     branding = "browser/branding/aurora";
