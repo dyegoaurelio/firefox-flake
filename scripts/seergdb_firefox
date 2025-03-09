@@ -1,0 +1,10 @@
+if [ -z "$GDB" ]; then
+  GDB=$(which gdb)
+fi
+
+if [ -z "$MOZILLA_CENTRAL" ]; then
+  MOZILLA_CENTRAL=$(pwd)
+fi
+
+seergdb --run --gdb-program $GDB \
+ $MOZILLA_CENTRAL/objdir/dist/bin/firefox --debugger gdb --verbose -profile $MOZILLA_CENTRAL/objdir/tmp/profile-default
